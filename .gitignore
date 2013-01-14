@@ -1,0 +1,8 @@
+parts
+*.pyc
+var
+bin
+develop-eggs
+*.egg-info
+.installed.cfg
+.mr.developer.cfg
