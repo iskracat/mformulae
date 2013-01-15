@@ -25,7 +25,7 @@ class IFormula(form.Schema):
     directives.languageindependent('formula')
     formula = RichText(title=_(u"Formula matemàtica"), description=_(u"Escriu la formula matemàtica en Tex"), required=True)
 
-    explicacio = RichText(title=_(u"Explicació formula"), required=True)
+    # explicacio = RichText(title=_(u"Explicació formula"), required=True)
 
     audio = NamedFile(title=_(u"Audio"), description=_(u"Arxiu d\'audio que conta la locucio"), required=True,)
 
