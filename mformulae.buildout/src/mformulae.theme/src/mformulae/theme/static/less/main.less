@@ -1,0 +1,397 @@
+@import "bootstrap/bootstrap.less";
+
+body {
+	background-color: #eaeaea;
+	
+	font-family: 'Bitter';
+
+}
+
+@import "bootstrap/responsive.less";
+
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+
+a{
+	color: #666;
+	}
+	
+a:visited{
+	color: #666;
+	}
+	
+a:hover{
+	color: #ff6600;
+	text-decoration: none;
+	}
+	
+a:active{
+	color: #000;
+	text-decoration: none;
+	}
+	
+
+
+
+
+
+/* ===== Capçalera =======
+   ========================================================================== */
+
+
+.navbar-inverse .navbar-inner {
+    background-color: #eaeaea;
+    background-image: url("../img/fons_header.png");
+    background-repeat: repeat-x;
+	border-color: transparent;
+	border-width: 0px;
+	box-shadow: none;
+}
+
+#caixa_logos_capcalera{
+	float: right;  
+	clear: none;
+}
+
+#navegacio_principal{
+float: left;  
+clear: left;
+}
+
+
+#portal-globalnav{
+	a{
+	.border-radius(10px 10px 0px 0px);
+	padding: 10px 40px 10px 40px;
+	margin-right: 10px;
+	margin-top: 10px;
+	background-color: #d1d1d1;
+	font-family: 'Bitter';
+	font-weight:700;
+	color: #666;
+	text-shadow: 0 1px 0 #FFFFFF;
+	}
+	
+	a:hover{
+	padding: 15px 40px 15px 40px;
+	background-color: #eaeaea;
+	margin-top: 0px;
+	color: #333;
+	box-shadow: none;
+	}
+	
+	.active > a{
+		padding: 15px 40px 15px 40px;
+		background-color: #eaeaea;
+		margin-top: 0px;
+		color: #333;
+		box-shadow: none;
+	}
+}
+
+
+#caixa_idiomes{
+	float: right;  	
+	margin-top:20px;
+	display: block;
+}
+
+
+
+.navbar .brand {
+    color: #333;
+    float: left;  
+    margin-left: -20px;
+    padding: 10px 20px 0px 20px;
+	display: inline-block;
+	font-size: 14px;
+	}
+    
+.titol_marca{
+	font-family: 'Bitter';
+	font-weight:700;
+	text-shadow: 0 1px 0 #FFFFFF;
+	font-size: 0.9em;
+	color: #333;
+	margin-bottom: 30px;
+	}
+
+
+
+.ul_logos {	
+	display: block;
+    float: right;
+
+ 	li {
+	float: left;
+	list-style: none outside none;
+	margin: 10px 0px 0px 20px
+	}
+	
+}
+
+#portal-languageselector {	
+
+ 	li {
+	float: left;
+	list-style: none outside none;
+	margin: 0px 0px 0px 20px;
+	font-family: 'Bitter';
+	font-size:1em;
+		a{
+		color:#999;
+		}
+		
+		a:hover{
+		color:#ff6600;
+		text-decoration: none;
+		}
+	
+	}
+	
+	.currentLanguage {
+	font-family: 'Bitter';
+	font-style:italic;
+	font-size:1em;
+	
+	a{
+	color:#333;
+	}
+	}
+	
+	
+}
+
+
+.btn btn-navbar{
+	float: right;
+	clear: none;
+}
+
+
+
+
+
+
+
+
+/* ===== Peu =======
+   ========================================================================== */
+
+.footer	p{
+		color: #666;
+		font-size:0.8em;
+	}
+	
+	
+#links_peu_pagina{
+
+	ul {
+    	margin-left: 0px;
+		}
+	
+	li {
+	float: left;
+	list-style: none outside none;
+	margin: 0px 20px 0px 0px
+	}
+	
+	a{
+		font-family: 'Bitter';
+		font-weight:700;
+		text-shadow: 0 1px 0 #FFFFFF;
+	}
+
+}
+
+#acces_usuaris_peu_pagina{
+	background-image: url("../img/icona_usuari.png");
+	background-repeat: no-repeat;
+	float: right;
+	padding-left: 40px;
+	
+	a{
+		font-family: 'Bitter';
+		font-size:0.9em;
+		font-weight:700;
+		text-shadow: 0 1px 0 #FFFFFF;
+	}
+}
+
+#caixa_logos_peu_pagina{
+	width: 100%;
+	.border-radius(20px 20px 20px 20px);
+	background-color: #f5f5f5;
+	display: inline-block;
+
+	ul {
+		padding-top: 30px;
+		padding-left: 0px;
+		margin-left: 0px;
+		}
+
+	li {
+		width: 25%;
+		text-align: center;
+		float: left;
+		list-style: none outside none;
+		margin-bottom: 30px;
+		}
+
+}
+
+
+
+#logo_footer{
+	width: 20%;
+	float: left;
+	}
+	
+#text_footer{
+	width: 50%;
+	float: left;
+	
+	p {
+	padding: 0px 20px 0px 20px;
+	}
+	}
+	
+#espai_impulsat_footer{
+	text-align:right;
+	width: 30%;
+	float: right;
+	
+	a {
+	margin-left:10px;
+	}
+
+	}
+
+
+
+
+/* ===== Versions adaptades =======
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 979px) { 
+	
+.ul_logos {	
+	display: block;
+    float: left;
+}
+
+#caixa_logos_capcalera{
+	float: left;  
+
+}
+
+#portal-globalnav{
+
+	a{
+	padding: 10px 30px 10px 30px;
+	}
+	
+	a:hover{
+	padding: 10px 30px 10px 30px;
+	}
+	
+	.active > a{
+		padding: 15px 30px 15px 30px;
+	}	
+}
+
+#caixa_idiomes {
+    float: none;
+}
+				
+}
+
+
+
+@media (max-width: 767px)  {
+
+.ul_logos {	
+	display: block;
+    float: left;
+    margin: 0 0 10px 0px;
+}
+
+#caixa_idiomes{
+	display: block;
+	margin-top:10px;
+	margin-bottom: 20px;
+}
+
+#portal-globalnav{
+
+	a{
+	.border-radius(10px 10px 10px 10px);
+	padding: 10px 40px 10px 40px;
+	}
+	
+	a:hover{
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	}
+	
+	.active > a{
+		margin-top: 10px;
+		padding: 10px 40px 10px 40px;
+	}	
+}
+
+#caixa_logos_capcalera{
+	float: left;  
+
+
+}
+
+#navegacio_principal{
+float: none;  
+clear: left;
+}
+
+#acces_usuaris_peu_pagina{
+	float: left;
+	margin-top: 20px;
+	}
+	
+#logo_footer{
+	width: 100%;
+	float: none;
+	}
+	
+#text_footer{
+	width: 100%;
+	float: none;
+	
+	p {
+	padding: 20px 0px 20px 0px;
+	}
+	}
+
+#espai_impulsat_footer{
+	text-align:left;
+	width: 100%;
+	float: left;
+	
+	a {
+	margin:0px 10px 0px 0px;
+	}
+
+	}
+
+#acces_usuaris_peu_pagina{
+	background-image: url("../img/icona_usuari.png");
+	background-repeat: no-repeat;
+	float: left;
+	clear: left;
+	padding-left: 40px;
+	}
+		
+}
+
+

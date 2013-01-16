@@ -1,0 +1,82 @@
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- El tema per la pagina principal -->
+    <!-- <theme href="home.html" css:if-content=".section-front-page" /> -->
+
+     <theme href="index.html" /> 
+    
+    <!-- The default theme, used for standard Plone web pages -->
+  <!--  <theme href="index.html" css:if-content=".site-ca" />
+    <theme href="index-fr.html" css:if-content=".site-fr" />
+    <theme href="index-es.html" css:if-content=".site-es" />
+
+    <theme href="index.html" css:if-content=".site-geosilva" />-->
+
+   
+
+    <rules css:if-content="#visual-portal-wrapper">
+
+        <!-- Add meta tags -->
+        <!-- <drop theme="/html/head/meta" /> -->
+        <after content="/html/head/meta" theme="/html/head/meta" />
+        
+        <drop content="/html/head/meta" if-content="(//*[@name='viewport'])"/>
+        
+        <!-- Copy style, script and link tags in the order they appear in the content -->
+        <!--<before
+            content="/html/head/style | /html/head/script | /html/head/link"
+            theme-children="/html/head"
+            />-->
+
+        <drop theme="/html/head/style" />
+        <!-- <drop theme="/html/head/script" /> -->
+        <!-- <drop theme="/html/head/link" /> -->
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+
+        <!-- Logo (link target) -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="#logo" />
+
+        <!-- Menu de casos d'exit -->
+        <replace css:content='#casosdexit' css:theme-children='#menuSeccionsSec' />
+
+        <!-- Site actions -->
+        <replace css:content="#portal-siteactions li" css:theme-children="#actions" />
+
+        <!-- Global navigation -->
+        <replace css:content='#portal-globalnav li' css:theme-children='#global-navigation' />
+		<replace css:content='#portal-languageselector' css:theme-children='#ul_idiomes' />
+
+        <!-- Breadcrumbs -->
+        <replace css:content-children='#portal-breadcrumbs' css:theme-children='#breadcrumbs' />
+
+        <!-- Document Content -->
+<!--        <replace css:content-children="#content" css:theme-children="#content" css:if-content=".portaltype-formfolder" />
+        <replace css:content-children="#content" css:theme-children="#container"  css:if-content=".template-default_error_message" />
+        <replace css:content-children="#content" css:theme-children="#content"  css:if-content=".template-login_form" />-->
+        <replace css:content-children="#content-core" css:theme-children="#content" css:if-content=".section-front-page"/>
+        <replace css:content-children="#content" css:theme-children="#aqui_va_el_contingut" />
+
+
+        <before css:content="#edit-bar" css:theme="#document-content" />
+        <before css:content=".portalMessage" css:theme="#document-content" />
+
+        <!-- Columns -->
+        <replace css:content-children="#portal-column-one > *" css:theme-children="#column-one" />
+        <replace css:content-children="#portal-column-two > *" css:theme-children="#column-two" />
+
+		<!-- tabs -->
+		<replace css:content-children="#portal-globalnav" css:theme-children="#navegacio" />
+		<replace css:content-children="#portal-languageselector" css:theme-children="#idiomes" />
+		<replace css:content-children="#peu" css:theme-children="#contingut_peu" />
+		<replace css:content-children="#entrar" css:theme-children="#caixa_entrar" />
+        
+    </rules>
+
+</rules>
