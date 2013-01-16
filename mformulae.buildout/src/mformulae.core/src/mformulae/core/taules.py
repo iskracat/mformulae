@@ -12,29 +12,26 @@ from plone.multilingualbehavior import directives
 from zope import schema
 
 
-class IFormula(form.Schema):
+class ITaula(form.Schema):
 
     directives.languageindependent('temes')
     temes = RelationList(title=u"Temes",
                          default=[],
-                         value_type=RelationChoice(title=_(u"Temes a les que pertany la formula"),
+                         value_type=RelationChoice(title=_(u"Temes als que pertany la taula de símbols"),
                                                    source=ObjPathSourceBinder(object_provides=ITema.__identifier__)),
-                         required=False,
-                )
+                         required=False,)
 
-    directives.languageindependent('formula')
-    formula = schema.Text(title=_(u"Formula matemàtica"), 
-                          description=_(u"Escriu la formula matemàtica en Tex"), 
-                          required=True)
+    directives.languageindependent('taula')
+    taula = schema.Text(title=_(u"Taula de símbols"), 
+                        description=_(u"Escriu la taula de símbols en Tex"), 
+                        required=True,)
 
-    # explicacio = RichText(title=_(u"Explicació formula"), required=True)
-
+    directives.languageindependent('audio')
     audio = NamedFile(title=_(u"Audio"), 
-                      description=_(u"Arxiu d\'audio que conta la locucio"), 
+                      description=_(u"Arxiu d\'audio que conta la locució"), 
                       required=True,)
 
 
 class View(grok.View):
-    grok.context(IFormula)
+    grok.context(ITaula)
     grok.require('zope2.View')
-
