@@ -8,11 +8,6 @@
 
 <body>
 
-<tal:js metal:fill-slot="javascript_head_slot">
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</tal:js>
-
-
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
 
@@ -22,19 +17,23 @@
 
         <h3 class="descriptio_formula" tal:content="context/Description">Description</h3>
 
-        <p tal:content="structure context/taula"></p>
+        <div id="caixa_formula">
+            <p tal:content="structure context/taula"></p>
+        </div>
+
+        <div id="caixa_temes">
+            <ul id="llista_temes">
+                <tal:rep repeat="recurs context/temes">
+                    <li tal:condition="python:recurs.to_object">
+                        <i class="icon-tag"></i> <a href="" tal:attributes="href python:recurs.to_object.absolute_url()" tal:content="python:recurs.to_object.Title()"></a>
+                    </li>
+                </tal:rep>
+            </ul>
+        </div>
 
         <div class="autoFlowPlayer audio">
             <a tal:attributes="href string:${context/absolute_url}/@@display-file/audio"></a>
         </div>
-
-        <h2>Temes</h2>
-        <ul>
-            <li tal:repeat="recurs context/temes">
-                <a href="" tal:attributes="href python:recurs.to_object.absolute_url()"><h4 class="titol_llistat_recurs" tal:content="python:recurs.to_object.Title()"></h4></a>
-                <p class="description_llistat_recurs" tal:content="python:recurs.to_object.Description()"></p>
-            </li>
-        </ul>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 

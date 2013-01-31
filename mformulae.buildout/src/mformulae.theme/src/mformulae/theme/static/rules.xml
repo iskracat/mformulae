@@ -35,8 +35,19 @@
         <!-- menú de navegació -->
         <replace css:content-children="#portal-globalnav" css:theme-children="#portal-globalnav" />
 
-        <!-- contingut -->
-        <replace css:theme-children="#contingut" css:content-children="#content"/>
+        <!-- contingut si mostrem faceted -->
+        <rules css:if-content=".template-facetednavigation_view">
+            <replace css:theme-children="#contingut_sense_portlets" css:content-children="#content"/>
+            <drop css:theme="#contingut_amb_portlets" />
+            <drop css:theme="#column_one" />
+        </rules>
+
+        <!-- contingut si mostrem no faceted: afegim portlets -->
+        <rules css:if-not-content=".template-facetednavigation_view">
+            <replace css:theme-children="#column_one" css:content=".portletNavigationTree" />
+            <replace css:theme-children="#contingut_amb_portlets" css:content-children="#content"/>            
+            <drop css:theme="#contingut_sense_portlets" />
+        </rules>
 
         <!-- siteactions -->
         <replace css:theme-children="#portal-siteactions" css:content-children="#portal-siteactions"/>

@@ -13,36 +13,36 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <div id="formula">
-            <h1 class="titol_formula" tal:content="context/title">Titol</h1>
+        <h1 class="titol_formula" tal:content="context/title">Titol</h1>
 
-            <h2 class="descriptio_formula" tal:content="context/Description">Description</h2>
+        <h2 class="descriptio_formula" tal:content="context/Description">Description</h2>
 
-            <div id="caixa_formula">
-                <p tal:content="structure context/formula"></p>
-            </div>
+        <div id="caixa_formula">
+            <p tal:content="structure context/formula"></p>
+        </div>
 
-            <div id="caixa_temes">
-                <ul id="llista_temes">
-                    <li tal:repeat="recurs context/temes">
+        <div id="caixa_temes">
+            <ul id="llista_temes">
+                <tal:rep repeat="recurs context/temes">
+                    <li tal:condition="python:recurs.to_object">
                         <i class="icon-tag"></i> <a href="" tal:attributes="href python:recurs.to_object.absolute_url()" tal:content="python:recurs.to_object.Title()"></a>
                     </li>
-                </ul>
-            </div>
-
-            <ul id="audios" tal:define="audios view/getAudios">
-                <li tal:repeat="audio audios">
-                    <div class="idioma" tal:content="audio/lang"></div>
-                    <div class="autoFlowPlayer audio">
-                         <a tal:attributes="href string:${audio/obj/absolute_url}/@@display-file/audio"></a>
-                    </div>
-                    <div class="info">
-                        <h3 tal:content="audio/obj/Title"></h3>
-                        <span tal:content="audio/obj/Description"></span>
-                    </div>
-                </li>
+                </tal:rep>
             </ul>
         </div>
+
+        <ul id="audios" tal:define="audios view/getAudios">
+            <li tal:repeat="audio audios">
+                <div class="idioma" tal:content="audio/lang"></div>
+                <div class="autoFlowPlayer audio">
+                     <a tal:attributes="href string:${audio/obj/absolute_url}/@@display-file/audio"></a>
+                </div>
+                <div class="info">
+                    <h3 tal:content="audio/obj/Title"></h3>
+                    <span tal:content="audio/obj/Description"></span>
+                </div>
+            </li>
+        </ul>
     
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
