@@ -6,15 +6,56 @@
     <theme href="index.html" css:if-content="#visual-portal-wrapper" />
 
     <rules css:if-content="#visual-portal-wrapper">
-        
-        <!-- idiomes -->
-        <replace theme-children="//*[@id='portal-languageselector']" content="//*[@id='portal-languageselector']"/>
 
-        <!-- navegació -->
-        <replace theme-children="//*[@id='portal-globalnav']" content-children="//*[@id='portal-globalnav']"/>
+
+
+
+        <!-- <drop content="/html/head/link[@rel = 'stylesheet']" /> -->
+        <!-- <append theme="/html/head" content="/html/head/*" /> -->
+
+        <!-- no mostrem títols -->
+        <!-- <drop content="h1" /> -->
+
+        <!-- javascripts -->
+        <append theme="/html/head" content="/html/head/script" /> 
+
+        <!-- link logo -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="#portal-logo" />
+
+        <!-- body: atributs class i dir -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+
+        <!-- títol de la pàgina -->
+        <replace theme="/html/head/title" content="/html/head/title" />
+
+        <!-- llistat d'idiomes -->
+        <replace css:content-children="#portal-languageselector" css:theme-children="#portal-languageselector" />
+
+        <!-- menú de navegació -->
+        <replace css:content-children="#portal-globalnav" css:theme-children="#portal-globalnav" />
 
         <!-- contingut -->
-        <replace theme="//*[@id='contingut']" content="//*[@id='content']" />
+        <replace css:theme-children="#contingut" css:content-children="#content"/>
+
+        <!-- siteactions -->
+        <replace css:theme-children="#portal-siteactions" css:content-children="#portal-siteactions"/>
+
+        <!-- portal-personaltools -->
+        <replace css:theme-children="#acces_usuaris_peu_pagina" css:content-children="#portal-personaltools"/>
+
+        <!-- edit-bar -->
+        <before css:if-content="#edit-bar" css:theme="#contingut" css:content="#edit-bar" />
+
+        <!-- portalMessage -->
+        <before css:if-content=".portalMessage" css:theme="#contingut" css:content=".portalMessage" />
+
+        <!-- text header -->
+        <replace css:if-content=".portlet-static-text_header" css:theme=".titol_marca" css:content-children=".portlet-static-text_header .portletItem" />
+
+        <!-- text del peu -->
+        <replace css:if-content=".portlet-static-text_footer" css:theme-children="#text_footer" css:content-children=".portlet-static-text_footer .portletItem" />
+        <replace css:if-content=".portlet-static-text_footer_2" css:theme-children="#text_footer_2" css:content-children=".portlet-static-text_footer_2 .portletItem" />
 
     </rules>
 

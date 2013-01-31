@@ -10,6 +10,9 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from mformulae.core.temes import ITema
 from plone.multilingualbehavior import directives
 from zope import schema
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+from plone.multilingual.interfaces import ITranslationManager
 
 
 class IFormula(form.Schema):
@@ -38,3 +41,13 @@ class View(grok.View):
     grok.context(IFormula)
     grok.require('zope2.View')
 
+    def getAudios(self):
+        
+        ltool = getToolByName(self.context, 'portal_languages')
+        languages = ltool.getAvailableLanguageInformation()
+        manager = ITranslationManager(self.context)
+        translations = manager.get_translations()
+        resultat = []
+        for translation in translations.keys():
+            resultat.append({'lang': languages[translation]['native'], 'obj': translations[translation]})
+        return resultat

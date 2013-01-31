@@ -1,397 +1,504 @@
 @import "bootstrap/bootstrap.less";
-
-body {
-	background-color: #eaeaea;
-	
-	font-family: 'Bitter';
-
-}
-
 @import "bootstrap/responsive.less";
 
+@gray: #666;
+@grayDark: #333;
+@greyLight: #dedede;
+@orange: #ff6600;
+@background-color: #eaeaea;
+@font-size: 14px;
 
 /* ===== Primary Styles ========================================================
    Author:
    ========================================================================== */
 
-a{
-	color: #666;
-	}
-	
-a:visited{
-	color: #666;
-	}
-	
-a:hover{
-	color: #ff6600;
-	text-decoration: none;
-	}
-	
-a:active{
-	color: #000;
-	text-decoration: none;
-	}
-	
+body {
+    background-color: @background-color;
+    font-family: 'Bitter';
+    font-size: @font-size;
+}
 
+h1 { font-size: 150%; line-height: 150%; }
+h2 { font-size: 130%; line-height: 130%; }
 
+a {
+    color: @gray;
+    &:visited { color: @gray; }
+    &:hover { color: @orange; text-decoration: none; }
+    &:active { color: #000; text-decoration: none; }
+}
 
+li {
+    list-style: none;
+}
 
 
 /* ===== Capçalera =======
    ========================================================================== */
 
-
 .navbar-inverse .navbar-inner {
-    background-color: #eaeaea;
+    background-color: @background-color;
     background-image: url("../img/fons_header.png");
     background-repeat: repeat-x;
-	border-color: transparent;
-	border-width: 0px;
-	box-shadow: none;
+    border-color: transparent;
+    border-width: 0px;
+    box-shadow: none;
 }
 
-#caixa_logos_capcalera{
-	float: right;  
-	clear: none;
+#caixa_logos_capcalera {
+    float: right;  
+    clear: none;
 }
 
-#navegacio_principal{
-float: left;  
-clear: left;
+#navegacio_principal {
+    float: left;  
+    clear: left;
+    margin-top: 30px;
 }
 
-
-#portal-globalnav{
-	a{
-	.border-radius(10px 10px 0px 0px);
-	padding: 10px 40px 10px 40px;
-	margin-right: 10px;
-	margin-top: 10px;
-	background-color: #d1d1d1;
-	font-family: 'Bitter';
-	font-weight:700;
-	color: #666;
-	text-shadow: 0 1px 0 #FFFFFF;
-	}
-	
-	a:hover{
-	padding: 15px 40px 15px 40px;
-	background-color: #eaeaea;
-	margin-top: 0px;
-	color: #333;
-	box-shadow: none;
-	}
-	
-	.active > a{
-		padding: 15px 40px 15px 40px;
-		background-color: #eaeaea;
-		margin-top: 0px;
-		color: #333;
-		box-shadow: none;
-	}
+#portal-globalnav {
+    a {
+        .border-radius(10px 10px 0px 0px);
+        padding: 10px 40px 10px 40px;
+        margin-right: 10px;
+        margin-top: 10px;
+        background-color: #d1d1d1;
+        font-family: 'Bitter';
+        font-weight:700;
+        color: @gray;
+        text-shadow: 0 1px 0 #FFFFFF;
+        text-transform: uppercase;
+    }
+    
+    a:hover, .active > a, .selected > a {
+        padding: 15px 40px 15px 40px;
+        background-color: @background-color;
+        margin-top: 0px;
+        color: @grayDark;
+        box-shadow: none;
+    }
 }
 
-
-#caixa_idiomes{
-	float: right;  	
-	margin-top:20px;
-	display: block;
+#caixa_idiomes {
+    float: right;      
+    margin-top:50px;
+    display: block;
 }
-
-
 
 .navbar .brand {
-    color: #333;
+    color: @grayDark;
     float: left;  
     margin-left: -20px;
     padding: 10px 20px 0px 20px;
-	display: inline-block;
-	font-size: 14px;
-	}
+    display: inline-block;
+    font-size: 14px;
+}
     
-.titol_marca{
-	font-family: 'Bitter';
-	font-weight:700;
-	text-shadow: 0 1px 0 #FFFFFF;
-	font-size: 0.9em;
-	color: #333;
-	margin-bottom: 30px;
-	}
+.titol_marca {
+    font-family: 'Bitter';
+    font-weight:700;
+    text-shadow: 0 1px 0 #FFFFFF;
+    font-size: 0.9em;
+    color: @grayDark;
+    margin-bottom: 30px;
+}
 
-
-
-.ul_logos {	
-	display: block;
+.ul_logos {    
+    display: block;
     float: right;
-
- 	li {
-	float: left;
-	list-style: none outside none;
-	margin: 10px 0px 0px 20px
-	}
-	
+     li {
+        float: left;
+        list-style: none outside none;
+        margin: 10px 0px 0px 20px
+    }
 }
 
-#portal-languageselector {	
-
- 	li {
-	float: left;
-	list-style: none outside none;
-	margin: 0px 0px 0px 20px;
-	font-family: 'Bitter';
-	font-size:1em;
-		a{
-		color:#999;
-		}
-		
-		a:hover{
-		color:#ff6600;
-		text-decoration: none;
-		}
-	
-	}
-	
-	.currentLanguage {
-	font-family: 'Bitter';
-	font-style:italic;
-	font-size:1em;
-	
-	a{
-	color:#333;
-	}
-	}
-	
-	
+#portal-languageselector {    
+    li {
+        float: left;
+        list-style: none outside none;
+        margin: 0px 0px 0px 20px;
+        font-family: 'Bitter';
+        font-size:1em;
+        a {
+            color:#999;
+            &:hover { color:@orange; text-decoration: none;}
+        }
+    }
+    
+    .currentLanguage {
+        font-family: 'Bitter';
+        font-style:italic;
+        font-size:1em;
+        a {
+            color:@grayDark;
+        }
+    }
 }
 
-
-.btn btn-navbar{
-	float: right;
-	clear: none;
+.btn btn-navbar {
+    float: right;
+    clear: none;
 }
-
-
-
-
-
-
 
 
 /* ===== Peu =======
    ========================================================================== */
 
-.footer	p{
-		color: #666;
-		font-size:0.8em;
-	}
-	
-	
-#links_peu_pagina{
+.footer p {
+    color: @gray;
+    font-size:0.8em;
+}
+    
+#links_peu_pagina {
 
-	ul {
-    	margin-left: 0px;
-		}
-	
-	li {
-	float: left;
-	list-style: none outside none;
-	margin: 0px 20px 0px 0px
-	}
-	
-	a{
-		font-family: 'Bitter';
-		font-weight:700;
-		text-shadow: 0 1px 0 #FFFFFF;
-	}
-
+    ul {
+        margin-left: 0px;
+    }
+    
+    li {
+        float: left;
+        list-style: none outside none;
+        margin: 0px 20px 0px 0px
+    }
+    
+    a {
+        font-family: 'Bitter';
+        font-weight:700;
+        text-shadow: 0 1px 0 #FFFFFF;
+    }
 }
 
-#acces_usuaris_peu_pagina{
-	background-image: url("../img/icona_usuari.png");
-	background-repeat: no-repeat;
-	float: right;
-	padding-left: 40px;
-	
-	a{
-		font-family: 'Bitter';
-		font-size:0.9em;
-		font-weight:700;
-		text-shadow: 0 1px 0 #FFFFFF;
-	}
+#acces_usuaris_peu_pagina {
+    background-image: url("../img/icona_usuari.png");
+    background-repeat: no-repeat;
+    float: right;
+    padding-left: 40px;
+    
+    a {
+        font-family: 'Bitter';
+        font-size:0.9em;
+        font-weight:700;
+        text-shadow: 0 1px 0 #FFFFFF;
+    }
 }
 
-#caixa_logos_peu_pagina{
-	width: 100%;
-	.border-radius(20px 20px 20px 20px);
-	background-color: #f5f5f5;
-	display: inline-block;
+#caixa_logos_peu_pagina {
+    width: 100%;
+    float: left; 
+    .border-radius(20px 20px 20px 20px);
+    background-color: #f5f5f5;
+    display: inline-block;
 
-	ul {
-		padding-top: 30px;
-		padding-left: 0px;
-		margin-left: 0px;
-		}
+    ul {
+        padding-top: 30px;
+        padding-left: 0px;
+        margin-left: 0px;
+    }
 
-	li {
-		width: 25%;
-		text-align: center;
-		float: left;
-		list-style: none outside none;
-		margin-bottom: 30px;
-		}
-
+    li {
+        width: 25%;
+        text-align: center;
+        float: left;
+        list-style: none outside none;
+        margin-bottom: 30px;
+    }
 }
 
-
-
-#logo_footer{
-	width: 20%;
-	float: left;
-	}
-	
-#text_footer{
-	width: 50%;
-	float: left;
-	
-	p {
-	padding: 0px 20px 0px 20px;
-	}
-	}
-	
-#espai_impulsat_footer{
-	text-align:right;
-	width: 30%;
-	float: right;
-	
-	a {
-	margin-left:10px;
-	}
-
-	}
-
-
+#logo_footer {
+    width: 20%;
+    float: left;
+}
+    
+#text_footer {
+    width: 50%;
+    float: left;
+    p {
+        padding: 0px 20px 0px 20px;
+    }
+}
+    
+#espai_impulsat_footer {
+    text-align:right;
+    width: 30%;
+    float: right;
+    a {
+        margin-left:10px;
+    }
+}
 
 
 /* ===== Versions adaptades =======
+320px   /   768px   /   1024px  /   1680px
+smartphone --- tablet --- netbook --- monitor
    ========================================================================== */
 
 @media (min-width: 768px) and (max-width: 979px) { 
-	
-.ul_logos {	
-	display: block;
-    float: left;
+
+    .ul_logos {    
+        display: block;
+        float: left;
+    }
+
+    #caixa_logos_capcalera {
+        float: left;
+    }
+
+    #portal-globalnav {
+        a {
+            padding: 10px 30px 10px 30px;
+            &:hover { padding: 10px 30px 10px 30px; }
+            &:active > a { padding: 15px 30px 15px 30px; }
+        }
+    }
+
+    #caixa_idiomes {
+        float: none;
+    }
+
 }
-
-#caixa_logos_capcalera{
-	float: left;  
-
-}
-
-#portal-globalnav{
-
-	a{
-	padding: 10px 30px 10px 30px;
-	}
-	
-	a:hover{
-	padding: 10px 30px 10px 30px;
-	}
-	
-	.active > a{
-		padding: 15px 30px 15px 30px;
-	}	
-}
-
-#caixa_idiomes {
-    float: none;
-}
-				
-}
-
-
 
 @media (max-width: 767px)  {
 
-.ul_logos {	
-	display: block;
+    .ul_logos {    
+        display: block;
+        float: left;
+        margin: 0 0 10px 0px;
+    }
+
+    #caixa_idiomes{
+        display: block;
+        margin-top:10px;
+        margin-bottom: 20px;
+    }
+
+    #portal-globalnav {
+        a {
+            .border-radius(10px 10px 10px 10px);
+            padding: 10px 40px 10px 40px;
+            &:hover {
+                margin-top: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            &:active > a {
+                margin-top: 10px;
+                padding: 10px 40px 10px 40px;
+            }    
+        }
+    }
+
+    #caixa_logos_capcalera {
+        float: left;  
+    }
+
+    #navegacio_principal {
+        float: none;  
+        clear: left;
+    }
+
+    #acces_usuaris_peu_pagina {
+        float: left;
+        margin-top: 20px;
+    }
+        
+    #logo_footer {
+        width: 100%;
+        float: none;
+    }
+        
+    #text_footer {
+        width: 100%;
+        float: none;
+        
+        p {
+            padding: 20px 0px 20px 0px;
+        }
+    }
+
+    #espai_impulsat_footer {
+        text-align:left;
+        width: 100%;
+        float: left;
+        
+        a {
+            margin:0px 10px 0px 0px;
+        }
+    }
+
+    #acces_usuaris_peu_pagina {
+        background-image: url("../img/icona_usuari.png");
+        background-repeat: no-repeat;
+        float: left;
+        clear: left;
+        padding-left: 40px;
+    }
+
+    #caixa_logos_peu_pagina {
+        li {
+            width: 50%;
+            background-color: blue;
+        }
+    }
+
+    #links_peu_pagina li {
+        float: none;
+    }
+
+}
+
+@media (max-width: 320px)  {
+
+    #caixa_logos_peu_pagina {
+        li {
+            width: 100%;
+            background-color: orange;
+        }
+    }
+}
+
+
+/* ===== faceted-widget =======
+   ========================================================================== */
+
+.template-facetednavigation_view h1 { display: none; }
+
+.faceted-widget {
+    background-color: white;
+    .border-radius(10px);
+    margin: 1em;
+
+    fieldset {
+        
+        border: 0 !important;
+        padding: 0 1.5em 0.5em 1.5em  !important;
+    }
+    
+    legend {
+        border-bottom: 1px dashed @grayDark;
+        padding-top: 0.5em;
+    }
+
+    ul li label {
+        padding-left: 1.5em !important;
+    }
+
+    form {
+        input[type="text"] { 
+            width: 80%; 
+            margin-right: 4%; 
+            .border-radius(20px);
+        }
+
+        input[type="submit"] { 
+            width: 10%;
+            min-width: 100px;
+            vertical-align:top;
+            color: @gray;
+            line-height: 24px;
+        }
+
+        .faceted-textwidget-place-all, .faceted-textwidget-place-current {
+            float: left;
+            input { float: left; margin-right: 10px; }
+            label { float: left; }
+        }
+        .faceted-textwidget-place-all {
+            width: 30%;
+        }
+        .faceted-textwidget-place-current {
+            width: 70%;
+        }
+    }
+}
+
+#left-area .faceted-widget {
+    margin-left: 0;
+}
+#center-top-area .faceted-widget {
+    margin-right: 0;
+}
+
+
+/* ===== photoAlbumEntry =======
+   ========================================================================== */
+.photoAlbumEntry {
+    background-color: white;
+    .border-radius(10px);
+    margin: 0 0 1em 1em;
+    width: 239px;
     float: left;
-    margin: 0 0 10px 0px;
-}
+    padding: 10px;
 
-#caixa_idiomes{
-	display: block;
-	margin-top:10px;
-	margin-bottom: 20px;
-}
-
-#portal-globalnav{
-
-	a{
-	.border-radius(10px 10px 10px 10px);
-	padding: 10px 40px 10px 40px;
-	}
-	
-	a:hover{
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	}
-	
-	.active > a{
-		margin-top: 10px;
-		padding: 10px 40px 10px 40px;
-	}	
-}
-
-#caixa_logos_capcalera{
-	float: left;  
-
-
-}
-
-#navegacio_principal{
-float: none;  
-clear: left;
-}
-
-#acces_usuaris_peu_pagina{
-	float: left;
-	margin-top: 20px;
-	}
-	
-#logo_footer{
-	width: 100%;
-	float: none;
-	}
-	
-#text_footer{
-	width: 100%;
-	float: none;
-	
-	p {
-	padding: 20px 0px 20px 0px;
-	}
-	}
-
-#espai_impulsat_footer{
-	text-align:left;
-	width: 100%;
-	float: left;
-	
-	a {
-	margin:0px 10px 0px 0px;
-	}
-
-	}
-
-#acces_usuaris_peu_pagina{
-	background-image: url("../img/icona_usuari.png");
-	background-repeat: no-repeat;
-	float: left;
-	clear: left;
-	padding-left: 40px;
-	}
-		
+    .formula {
+        background-color: @background-color;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 
+
+/* ===== fórmula =======
+   ========================================================================== */
+
+#formula {
+    float: left;
+    width: 96%;
+    padding: 2%;
+    background-color: white;
+    .border-radius(10px);
+    margin-top: 20px;
+}
+
+#caixa_formula {
+    float: left;
+    width: 98%;
+    padding: 30px 1%;
+    background-color: @greyLight;
+    margin: 30px 0;
+}
+
+#caixa_temes {
+    float: left;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 30px;
+    #llista_temes { 
+        display: block;
+        float: right;
+        li { 
+            float: left; 
+            margin-left: 30px;
+            i { color: @greyLight; }
+        }
+    }
+}
+
+#audios {
+    margin: 0;
+
+    .idioma {
+        background-color: @greyLight;
+        float: left;
+        width: 12%;
+        padding: 10px 1%;
+        margin-right: 1%;
+        height: 26px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+    }
+    .autoFlowPlayer.audio {
+        background-color: @greyLight;
+        float: left;
+        width: 83%;
+        padding: 10px 1%;
+        height: 26px;
+    }
+    .info {
+        float: left;
+        width: 100%;
+        margin-bottom: 45px;
+    }
+}
