@@ -13,7 +13,10 @@ from zope import schema
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from plone.multilingual.interfaces import ITranslationManager
+from plone.directives import form
+from collective.formwidget.mathjax import MathJaxFieldWidget
 
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 class IFormula(form.Schema):
 
@@ -25,6 +28,7 @@ class IFormula(form.Schema):
                          required=False,
                 )
 
+    form.widget(formula=MathJaxFieldWidget)
     directives.languageindependent('formula')
     formula = schema.Text(title=_(u"Formula matemàtica"), 
                           description=_(u"Escriu la formula matemàtica en Tex"), 
