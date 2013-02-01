@@ -15,8 +15,12 @@ from Products.CMFCore.utils import getToolByName
 from plone.multilingual.interfaces import ITranslationManager
 from plone.directives import form
 from collective.formwidget.mathjax import MathJaxFieldWidget
+from collective import dexteritytextindexer
+from plone.app.dexterity.behaviors.metadata import IBasic
+from collective.dexteritytextindexer.utils import searchable
 
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+
 
 class IFormula(form.Schema):
 
@@ -40,6 +44,10 @@ class IFormula(form.Schema):
                       description=_(u"Arxiu d\'audio que conta la locucio"), 
                       required=True,)
 
+    # dexteritytextindexer.searchable('Title')
+    # dexteritytextindexer.searchable('Description')
+    searchable(IBasic, 'title')
+    searchable(IBasic, 'description')
 
 class View(grok.View):
     grok.context(IFormula)

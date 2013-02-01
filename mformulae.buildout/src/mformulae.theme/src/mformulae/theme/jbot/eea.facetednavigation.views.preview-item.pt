@@ -2,8 +2,8 @@
      tal:define="portal_type context/portal_type;
                  useViewTypes context/portal_properties/site_properties/typesUseViewActionInListings;
                  useView python:portal_type in useViewTypes;">
-    <div class="formula">
-        <p tal:content="structure context/formula"></p>
+    <div class="formula" id="" style="font-size: x-small; width: 210px; display:inline-block;" tal:attributes="id context/id">
+        <p tal:replace="structure context/formula"></p>
     </div>
     <a tal:define="description context/Description|string:;
                    title context/pretty_title_or_id|string:;
@@ -13,7 +13,5 @@
         <span class="photoAlbumEntryTitle" tal:content="context/pretty_title_or_id|string:">Title</span>
     </a>
 </div>
-<!-- todo lpmayos: aquesta línia hauria d'anar a jbot/faceted_view.js; com que no trobo l'arxiu, de moment faig que ho faci per cada fórmula -->
-<script>
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-</script>
+
+

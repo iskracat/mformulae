@@ -54,7 +54,7 @@ class Temes(object):
         terms = []
         if temes is not None:
             for tema in temes:
-                terms.append(SimpleVocabulary.createTerm(tema.id, str(tema.id), _(tema.id)))
+                terms.append(SimpleVocabulary.createTerm(tema.id, str(tema.Title), _(tema.Title)))
         return SimpleVocabulary(terms)
 
 
