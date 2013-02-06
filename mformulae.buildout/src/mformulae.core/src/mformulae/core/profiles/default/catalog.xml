@@ -4,7 +4,7 @@
         <indexed_attr value="temes"/>
     </index>
     <column value="temes"/> -->
-	<index name="temes_relacionats" meta_type="FieldIndex">
+	<index name="temes_relacionats" meta_type="KeywordIndex">
 		<indexed_attr value="temes_relacionats"/>
 	</index>
 </object>
