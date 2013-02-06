@@ -547,3 +547,23 @@ smartphone --- tablet --- netbook --- monitor
 }
 
 
+
+/* ===== faceted responsive =======
+   ========================================================================== */
+
+#left-area { width: 30% !important; min-width: 200px; }
+#center-area { 
+    width: 70% !important; 
+    .left-area-js { margin-left: 0; }
+}
+
+@media (max-width: 630px)  {
+
+    #left-area { width: 100% !important; margin-top: -178px; }
+    #center-area { 
+        width: 100% !important; 
+        float: left;
+    }
+
+    .faceted-widget { margin: 0; }
+}
