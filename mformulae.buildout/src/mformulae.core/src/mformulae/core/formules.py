@@ -18,8 +18,12 @@ from collective.formwidget.mathjax import MathJaxFieldWidget
 from collective import dexteritytextindexer
 from plone.app.dexterity.behaviors.metadata import IBasic
 from collective.dexteritytextindexer.utils import searchable
-
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
+
+from plone.indexer import indexer
+from zope.component import getUtility
+from zc.relation.interfaces import ICatalog
+from zope.app.intid.interfaces import IIntIds
 
 
 class IFormula(form.Schema):
@@ -49,6 +53,7 @@ class IFormula(form.Schema):
     searchable(IBasic, 'title')
     searchable(IBasic, 'description')
 
+
 class View(grok.View):
     grok.context(IFormula)
     grok.require('zope2.View')
@@ -63,3 +68,16 @@ class View(grok.View):
         for translation in translations.keys():
             resultat.append({'lang': languages[translation]['native'], 'obj': translations[translation]})
         return resultat
+
+
+@indexer(IFormula)
+def temesIndexer(obj):
+    resultat = []
+    temes = obj.temes
+    for tema in temes:
+        tema_obj = tema.to_object
+        manager = ITranslationManager(tema_obj)
+        translations = manager.get_translations()
+        for translation in translations:
+            resultat.append(translations[translation].id)
+    return resultat

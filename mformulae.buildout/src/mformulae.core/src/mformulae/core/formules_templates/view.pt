@@ -31,7 +31,7 @@
             </ul>
         </div>
 
-        <div class="visualClear" />
+        <div class="visualClear"><!--  --></div>
 
         <ul id="audios" tal:define="audios view/getAudios">
             <li tal:repeat="audio audios">
@@ -39,7 +39,7 @@
                 <div class="autoFlowPlayer audio">
                      <a tal:attributes="href string:${audio/obj/absolute_url}/@@display-file/audio"></a>
                 </div>
-                <div class="visualClear" />
+                <div class="visualClear"><!--  --></div>
                 <div class="info">
                     <h3 tal:content="audio/obj/Title"></h3>
                     <span tal:content="audio/obj/Description"></span>

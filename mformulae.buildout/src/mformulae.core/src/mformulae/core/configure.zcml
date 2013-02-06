@@ -24,4 +24,6 @@
     name="edualter.core.Temes"
     />
 
+  <adapter name="temes_relacionats" factory=".formules.temesIndexer" />
+
 </configure>

@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-    <index name="temes" meta_type="KeywordIndex">
+<!--     <index name="temes" meta_type="KeywordIndex">
         <indexed_attr value="temes"/>
     </index>
-    <column value="temes"/>
+    <column value="temes"/> -->
+	<index name="temes_relacionats" meta_type="FieldIndex">
+		<indexed_attr value="temes_relacionats"/>
+	</index>
 </object>
