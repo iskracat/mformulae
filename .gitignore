@@ -6,3 +6,5 @@ develop-eggs
 *.egg-info
 .installed.cfg
 .mr.developer.cfg
+eggs
+*.egg
