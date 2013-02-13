@@ -7,15 +7,6 @@
 
     <rules css:if-content="#visual-portal-wrapper">
 
-
-
-
-        <!-- <drop content="/html/head/link[@rel = 'stylesheet']" /> -->
-        <!-- <append theme="/html/head" content="/html/head/*" /> -->
-
-        <!-- no mostrem títols -->
-        <!-- <drop content="h1" /> -->
-
         <!-- javascripts -->
         <append theme="/html/head" content="/html/head/script" /> 
 
@@ -37,16 +28,26 @@
 
         <!-- contingut si mostrem faceted -->
         <rules css:if-content=".template-facetednavigation_view">
-            <replace css:theme-children="#contingut_sense_portlets" css:content-children="#content"/>
+            <replace css:theme-children="#contingut_faceted" css:content-children="#content"/>
             <drop css:theme="#contingut_amb_portlets" />
+            <drop css:theme="#contingut_sense_portlets" />
             <drop css:theme="#column_one" />
         </rules>
 
-        <!-- contingut si mostrem no faceted: afegim portlets -->
+        <!-- contingut si mostrem no faceted: afegim portlets si n'hi ha -->
         <rules css:if-not-content=".template-facetednavigation_view">
-            <replace css:theme-children="#column_one" css:content=".portletNavigationTree" />
-            <replace css:theme-children="#contingut_amb_portlets" css:content-children="#content"/>            
-            <drop css:theme="#contingut_sense_portlets" />
+            <rules css:if-content=".portlet">
+                <replace css:theme-children="#column_one" css:content=".portletNavigationTree" />
+                <replace css:theme-children="#contingut_amb_portlets" css:content-children="#content"/>
+                <drop css:theme="#contingut_sense_portlets" />
+                <drop css:theme="#contingut_faceted" />
+            </rules>
+            <rules css:if-not-content=".portlet">
+                <replace css:theme-children="#contingut_sense_portlets" css:content-children="#content"/>
+                <drop css:theme="#contingut_amb_portlets" />
+                <drop css:theme="#column_one" />
+                <drop css:theme="#contingut_faceted" />
+            </rules>
         </rules>
 
         <!-- siteactions -->
@@ -69,5 +70,4 @@
         <replace css:if-content=".portlet-static-text_footer_2" css:theme-children="#text_footer_2" css:content-children=".portlet-static-text_footer_2 .portletItem" />
 
     </rules>
-
 </rules>
