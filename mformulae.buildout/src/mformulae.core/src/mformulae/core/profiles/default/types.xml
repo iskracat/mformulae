@@ -2,6 +2,7 @@
 <object meta_type="Plone Types Tool" name="portal_types">
  	<property name="title">Controls the available content types in your portal</property>
 	<object meta_type="Dexterity FTI" name="tema" />
-	<object meta_type="Dexterity FTI" name="formula" />
 	<object meta_type="Dexterity FTI" name="taula" />
+    <object meta_type="Dexterity FTI" name="formula" />
+    <object meta_type="Dexterity FTI" name="locucio" />
 </object>

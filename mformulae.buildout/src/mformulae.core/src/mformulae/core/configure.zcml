@@ -25,5 +25,6 @@
     />
 
   <adapter name="temes_relacionats" factory=".formules.temesIndexer" />
+  <adapter name="idiomes_locucio" factory=".formules.idiomesIndexer" />
 
 </configure>

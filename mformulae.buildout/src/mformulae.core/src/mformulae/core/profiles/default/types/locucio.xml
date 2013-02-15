@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<object name="formula" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="locucio" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">Formula</property>
+ <property name="title" i18n:translate="">Locució</property>
  <property name="description" i18n:translate="">None</property>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">formula</property>
- <property name="add_view_expr">string:${folder_url}/++add++formula</property>
+ <property name="factory">locucio</property>
+ <property name="add_view_expr">string:${folder_url}/++add++locucio</property>
  <property name="link_target"></property>
  <property name="immediate_view">view</property>
  <property name="global_allow">True</property>
@@ -18,17 +18,10 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">plone.dexterity.content.Container</property>
- <property name="allowed_content_types">
-  <element value="locucio" />
- </property>
+ <property name="klass">plone.dexterity.content.Item</property>
  <property name="behaviors">
-  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-  <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
-  <element value="plone.multilingualbehavior.interfaces.IDexterityTranslatable" />
  </property>
- <property name="schema">mformulae.core.formules.IFormula</property>
+ <property name="schema">mformulae.core.locucions.ILocucio</property>
  <property name="model_file"></property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="@@edit"/>
