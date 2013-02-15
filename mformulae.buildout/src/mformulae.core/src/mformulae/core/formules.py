@@ -43,10 +43,13 @@ class IFormula(form.Schema):
                           required=True)
 
     # explicacio = RichText(title=_(u"Explicació formula"), required=True)
+    locucio = schema.Text(title=_(u"Locució"), 
+                          description=_(u"Escriu la locució de la fórmula"), 
+                          required=True,)
 
     audio = NamedFile(title=_(u"Audio"), 
                       description=_(u"Arxiu d\'audio que conta la locucio"), 
-                      required=True,)
+                      required=False,)
 
     # dexteritytextindexer.searchable('Title')
     # dexteritytextindexer.searchable('Description')
@@ -59,7 +62,6 @@ class View(grok.View):
     grok.require('zope2.View')
 
     def getAudios(self):
-        
         ltool = getToolByName(self.context, 'portal_languages')
         languages = ltool.getAvailableLanguageInformation()
         manager = ITranslationManager(self.context)
@@ -69,6 +71,19 @@ class View(grok.View):
             resultat.append({'lang': languages[translation]['native'], 'obj': translations[translation]})
         return resultat
 
+    def getTemes(self):
+        ltool = getToolByName(self.context, 'portal_languages')
+        languages = ltool.getAvailableLanguageInformation()
+        temes = self.context.temes
+        resultat = []
+        for tema in temes:
+            obj = tema.to_object
+            manager = ITranslationManager(obj)
+            translations = manager.get_translations()
+            if self.context.language in translations:
+                tema_idioma = translations[self.context.language]
+                resultat.append({'url': tema_idioma.absolute_url, 'titol': tema_idioma.title})
+        return resultat
 
 @indexer(IFormula)
 def temesIndexer(obj):

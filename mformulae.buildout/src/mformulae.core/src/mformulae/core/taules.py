@@ -29,7 +29,7 @@ class ITaula(form.Schema):
     directives.languageindependent('audio')
     audio = NamedFile(title=_(u"Audio"), 
                       description=_(u"Arxiu d\'audio que conta la locució"), 
-                      required=True,)
+                      required=False,)
 
 
 class View(grok.View):

@@ -23,9 +23,9 @@
 
         <div id="caixa_temes">
             <ul id="llista_temes">
-                <tal:rep repeat="recurs context/temes">
-                    <li tal:condition="python:recurs.to_object">
-                        <i class="icon-tag"></i> <a href="" tal:attributes="href python:recurs.to_object.absolute_url()" tal:content="python:recurs.to_object.Title()"></a>
+                <tal:rep repeat="recurs view/getTemes">
+                    <li>
+                        <i class="icon-tag"></i> <a href="" tal:attributes="href recurs/url" tal:content="recurs/titol"></a>
                     </li>
                 </tal:rep>
             </ul>
@@ -42,7 +42,7 @@
                 <div class="visualClear"><!--  --></div>
                 <div class="info">
                     <h3 tal:content="audio/obj/Title"></h3>
-                    <span tal:content="audio/obj/Description"></span>
+                    <span tal:content="audio/obj/locucio"></span>
                 </div>
             </li>
         </ul>
