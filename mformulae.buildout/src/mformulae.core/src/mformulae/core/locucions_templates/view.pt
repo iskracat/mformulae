@@ -13,9 +13,11 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 class="titol_formula" tal:content="context/title">Titol</h1>
+        <h2 class="titol_formula" tal:content="context/title">Titol</h2>
 
-        <h2 class="descriptio_formula" tal:content="context/Description">Description</h2>
+        <h1 class="titol_formula" tal:content="context/nom_formula">Nom de la fórmula</h1>
+
+        <h3 class="descriptio_formula" tal:content="context/Description">Description</h3>
 
         <div class="autoFlowPlayer audio">
              <a tal:attributes="href string:${context/absolute_url}/@@display-file/audio"></a>

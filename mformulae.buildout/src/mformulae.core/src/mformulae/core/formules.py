@@ -15,6 +15,8 @@ from collective.formwidget.mathjax import MathJaxFieldWidget
 from plone.app.dexterity.behaviors.metadata import IBasic
 from collective.dexteritytextindexer.utils import searchable
 from plone.indexer import indexer
+from plone.i18n.locales.interfaces import IContentLanguageAvailability
+from zope.component import queryUtility
 
 
 class IFormula(form.Schema):
@@ -33,14 +35,6 @@ class IFormula(form.Schema):
                           description=_(u"Escriu la formula matemàtica en Tex"), 
                           required=True)
 
-    # locucio = schema.Text(title=_(u"Locució"), 
-    #                       description=_(u"Escriu la locució de la fórmula"), 
-    #                       required=True,)
-
-    # audio = NamedFile(title=_(u"Audio"), 
-    #                   description=_(u"Arxiu d\'audio que conta la locucio"), 
-    #                   required=False,)
-
     searchable(IBasic, 'title')
     searchable(IBasic, 'description')
 
@@ -49,15 +43,24 @@ class View(grok.View):
     grok.context(IFormula)
     grok.require('zope2.View')
 
-    # def getAudios(self):
-    #     ltool = getToolByName(self.context, 'portal_languages')
-    #     languages = ltool.getAvailableLanguageInformation()
-    #     manager = ITranslationManager(self.context)
-    #     translations = manager.get_translations()
-    #     resultat = []
-    #     for translation in translations.keys():
-    #         resultat.append({'lang': languages[translation]['native'], 'obj': translations[translation]})
-    #     return resultat
+    def getAudios(self):
+        resultat = []
+        manager = ITranslationManager(self.context)
+        translations = manager.get_translations()
+
+        util = queryUtility(IContentLanguageAvailability)
+        languages = util.getLanguages()
+
+        for translation in translations:
+            formula = translations[translation]
+            for i in formula.items():
+                locucio = i[1]
+                idioma = languages[locucio.title]['native']
+                resultat.append({'idioma': idioma, 
+                                 'url': locucio.absolute_url, 
+                                 'nom_formula': locucio.nom_formula, 
+                                 'locucio': locucio.locucio})
+        return resultat
 
     def getTemes(self):
         ltool = getToolByName(self.context, 'portal_languages')
@@ -72,6 +75,7 @@ class View(grok.View):
                 tema_idioma = translations[self.context.language]
                 resultat.append({'url': tema_idioma.absolute_url, 'titol': tema_idioma.title})
         return resultat
+
 
 @indexer(IFormula)
 def temesIndexer(obj):

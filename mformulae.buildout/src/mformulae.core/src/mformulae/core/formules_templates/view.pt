@@ -33,21 +33,20 @@
 
         <div class="visualClear"><!--  --></div>
 
-<!-- 
         <ul id="audios" tal:define="audios view/getAudios">
             <li tal:repeat="audio audios">
-                <div class="idioma" tal:content="audio/lang"></div>
+                <div class="idioma" i18n:domain="plone" i18n:translate="" tal:content="audio/idioma"></div>
                 <div class="autoFlowPlayer audio">
-                     <a tal:attributes="href string:${audio/obj/absolute_url}/@@display-file/audio"></a>
+                     <a tal:attributes="href string:${audio/url}/@@display-file/audio"></a>
                 </div>
-                <div class="visualClear">< ! - -  - - ></div>
+                <div class="visualClear"><!--  --></div>
                 <div class="info">
-                    <h3 tal:content="audio/obj/Title"></h3>
-                    <span tal:content="audio/obj/locucio"></span>
+                    <h3 tal:content="audio/nom_formula"></h3>
+                    <span tal:content="audio/locucio"></span>
                 </div>
             </li>
         </ul>
- -->
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>

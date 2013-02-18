@@ -13,6 +13,10 @@ class ILocucio(form.Schema):
                           vocabulary=u"plone.app.multilingual.vocabularies.AllContentLanguageVocabulary",
                           required=True,)
 
+    nom_formula = schema.Text(title=_(u"Nom de la fórmula en l'idioma triat"), 
+                          description=_(u"Escriu el nom de la fórmula en l'idioma indicat al desplegable"), 
+                          required=False,)
+
     locucio = schema.Text(title=_(u"Locució"), 
                           description=_(u"Escriu la locució de la fórmula"), 
                           required=True,)
