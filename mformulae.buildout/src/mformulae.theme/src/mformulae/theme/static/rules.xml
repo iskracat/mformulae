@@ -34,19 +34,28 @@
             <drop css:theme="#column_one" />
         </rules>
 
-        <!-- contingut si mostrem no faceted: afegim portlets si n'hi ha -->
+        <!-- contingut si mostrem no faceted: afegim portlets si n'hi ha, excepte per sitemap, accessibility-info i contact-info -->
         <rules css:if-not-content=".template-facetednavigation_view">
-            <rules css:if-content=".portlet">
-                <replace css:theme-children="#column_one" css:content=".portletNavigationTree" />
-                <replace css:theme-children="#contingut_amb_portlets" css:content-children="#content"/>
-                <drop css:theme="#contingut_sense_portlets" />
-                <drop css:theme="#contingut_faceted" />
-            </rules>
-            <rules css:if-not-content=".portlet">
+            <rules if-path="sitemap accessibility-info contact-info">
                 <replace css:theme-children="#contingut_sense_portlets" css:content-children="#content"/>
                 <drop css:theme="#contingut_amb_portlets" />
                 <drop css:theme="#column_one" />
                 <drop css:theme="#contingut_faceted" />
+            </rules>
+
+            <rules if-not-path="sitemap accessibility-info contact-info">
+                <rules css:if-content=".portlet">
+                    <replace css:theme-children="#column_one" css:content=".portletNavigationTree" />
+                    <replace css:theme-children="#contingut_amb_portlets" css:content-children="#content"/>
+                    <drop css:theme="#contingut_sense_portlets" />
+                    <drop css:theme="#contingut_faceted" />
+                </rules>
+                <rules css:if-not-content=".portlet">
+                    <replace css:theme-children="#contingut_sense_portlets" css:content-children="#content"/>
+                    <drop css:theme="#contingut_amb_portlets" />
+                    <drop css:theme="#column_one" />
+                    <drop css:theme="#contingut_faceted" />
+                </rules>
             </rules>
         </rules>
 
