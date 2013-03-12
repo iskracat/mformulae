@@ -18,6 +18,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
+
+  <i18n:registerTranslations directory="locales" />
   
   <utility
     component=".temes.TemesFactory"
